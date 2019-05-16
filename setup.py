@@ -36,10 +36,9 @@ setup(
 
     entry_points={
         'console_scripts': [
-            'mtcnn_example = tfmtcnn.apps.example:main',
-            'mtcnn_train = tfmtcnn.apps.train_mtcnn:main',
-            'lfw_test = tfmtcnn.apps.lfw_test:main',
-            'lfw_pypi_test = tfmtcnn.apps.lfw_pypi_test:main',
+            'example = tfmtcnn.apps.example:main',
+            'lfw_metrics = tfmtcnn.apps.lfw_metrics:main',
+            'lfw_pypi_metrics = tfmtcnn.apps.lfw_pypi_metrics:main',
         ],
     },
 
