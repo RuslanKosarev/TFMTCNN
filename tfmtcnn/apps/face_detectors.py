@@ -18,9 +18,10 @@ outdir = tfmtcnn.dirname().joinpath(os.pardir, 'output')
 @click.option('--detector', default='tfmtcnn', help='type of face detector, tfmtcnn or pypimtcnn')
 @click.option('--show', default=True, help='show face detections')
 def main(**args):
-    detector = FaceDetector(detector=args['detector'])
 
     loader = ioutils.ImageLoaderWithPath(os.listdir(str(imgdir)), prefix=imgdir)
+
+    detector = FaceDetector(detector=args['detector'])
 
     for image, path in loader:
         boxes = detector.detect(image)
