@@ -16,10 +16,11 @@ outdir = tfmtcnn.dirname().joinpath(os.pardir, 'output')
 
 @click.command()
 @click.option('--detector', default='tfmtcnn', help='type of face detector, tfmtcnn or pypimtcnn')
-@click.option('--show', default=True, help='show face detections')
+@click.option('--show', default=1, help='show face detections')
 @click.option('--input', default=imgdir, help='directory to read images')
 @click.option('--output', default=outdir, help='directory to save processed images with frames')
 def main(**args):
+    """Simple program to detect faces with tfmtcnn and pypi mtcnn detectors."""
 
     loader = ioutils.ImageLoaderWithPath(os.listdir(str(imgdir)), prefix=args['input'])
 
