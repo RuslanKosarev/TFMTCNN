@@ -17,9 +17,11 @@ outdir = tfmtcnn.dirname().joinpath(os.pardir, 'output')
 @click.command()
 @click.option('--detector', default='tfmtcnn', help='type of face detector, tfmtcnn or pypimtcnn')
 @click.option('--show', default=True, help='show face detections')
+@click.option('--input', default=imgdir, help='directory to read images')
+@click.option('--output', default=outdir, help='directory to save processed images with frames')
 def main(**args):
 
-    loader = ioutils.ImageLoaderWithPath(os.listdir(str(imgdir)), prefix=imgdir)
+    loader = ioutils.ImageLoaderWithPath(os.listdir(str(imgdir)), prefix=args['input'])
 
     detector = FaceDetector(detector=args['detector'])
 
@@ -30,7 +32,7 @@ def main(**args):
         print(boxes)
 
         # save images
-        ioutils.write_image(image, path.name, prefix=outdir)
+        ioutils.write_image(image, path.name, prefix=args['output'])
 
         # show rectangles
         if args['show']:
